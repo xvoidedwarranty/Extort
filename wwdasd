@@ -1,6 +1,5 @@
 -- // Extort V3
 
-
 --[[if Extort.Options["FPS Unlocker"].Enabled then 
     setfpscap(Extort.Options["FPS Unlocker"].FPS)
 end]]
@@ -40,7 +39,7 @@ end
 local utility = {
     Invite = "camlock",
     Folder = "ExtortSettings",
-    Version = "1.0-MoonBeta",
+    Version = "1.0-Solara",
     Ping = 5,
     Bypass = {
         12927359803, -- Dah Aim Trainer
@@ -2291,7 +2290,7 @@ end)
 
 
 
-if Extort["Options"]["Internal"].Enabled then 
+if Extort["Options"]["GUI"].Enabled then 
     if Extort_UI_LOADED then 
         return
     else
@@ -2310,7 +2309,7 @@ if Extort["Options"]["Internal"].Enabled then
         local Window = Library:CreateWindow({
             Title = title,
             Center = true,
-            AutoShow = Extort["Options"]["Internal"]["Auto Show"],
+            AutoShow = Extort["Options"]["GUI"]["Auto Show"],
             TabPadding = 8
         })
         
@@ -3846,7 +3845,7 @@ if Extort["Options"]["Internal"].Enabled then
         local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
         local MenuGroup2 = Tabs['UI Settings']:AddRightGroupbox('More Settings')
         MenuGroup:AddButton('Unload', function() Library:Unload() end)
-        MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = Extort["Options"]["Internal"].Bind, NoUI = true, Text = 'Menu keybind' })
+        MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = Extort["Options"]["GUI"].Bind, NoUI = true, Text = 'Menu keybind' })
         
         MenuGroup2:AddToggle('togglekeybindmenu', {
             Text = 'Keybind Menu',
@@ -3947,7 +3946,7 @@ if Extort["Options"]["Internal"].Enabled then
                 IconCorner.Name = "IconCorner"
                 IconCorner.Parent = IconButton
                 IconButton.MouseButton1Down:Connect(function()
-                    game:GetService("VirtualInputManager"):SendKeyEvent(true, string.upper(Extort["Options"]["Internal UI Bind"]) , false , game)
+                    game:GetService("VirtualInputManager"):SendKeyEvent(true, string.upper(Extort["Options"]["GUI UI Bind"]) , false , game)
                 end)
             end)
         end
